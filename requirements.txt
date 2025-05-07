@@ -1,0 +1,11 @@
+# Core Libraries
+tqdm
+nltk
+python-dotenv
+requests
+
+# Data Handling
+pandas
+
+# Web Interface
+gradio
