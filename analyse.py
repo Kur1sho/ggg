@@ -123,3 +123,22 @@ class SentimentAnalyser:
 
 if __name__ == '__main__':
     print("Do not run analyse.py directly. Instead run main.py.")
+
+import csv
+import json
+
+def export_to_csv(results, filename='sentiment_results.csv'):
+    if not results:
+        print("No results to export.")
+        return
+    keys = results[0].keys()
+    with open(filename, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, fieldnames=keys)
+        writer.writeheader()
+        writer.writerows(results)
+    print(f"Exported to {filename}")
+
+def export_to_json(results, filename='sentiment_results.json'):
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+    print(f"Exported to {filename}")
